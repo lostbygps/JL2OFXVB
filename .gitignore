@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/JL2OFXVB/bin/Debug
+/JL2OFXVB/publish
+/JL2OFXVB/obj
+/JL2OFXVB/bin/Release/app.publish

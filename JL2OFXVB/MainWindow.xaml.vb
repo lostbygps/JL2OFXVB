@@ -212,7 +212,7 @@
         Dim frompathlist As System.IO.FileInfo() = frompathdir.GetFiles("*.csv")
         If frompathlist.Length > 0 Then
             FromPathText = (From filedets In frompathlist
-                            Order By filedets.LastAccessTime Descending
+                            Order By filedets.LastAccessTime Descending, filedets.FullName
                             Select filedets.FullName).First()
             ToPathText = IO.Path.ChangeExtension(FromPathText, ".ofx")
         Else

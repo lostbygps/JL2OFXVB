@@ -12,7 +12,7 @@ Imports System.Windows
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("JL2OFXVB")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("John Lewis CSV to OFS file")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("JL2OFXVB")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
