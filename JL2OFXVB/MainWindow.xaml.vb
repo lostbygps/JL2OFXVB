@@ -17,9 +17,7 @@
         CSVFileDetail.Items.Refresh()
         ProcessButton.IsEnabled = True
         StatementDate.Visibility = Visibility.Visible
-#Disable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
         CSVGrid.SetRow(CSVFileDetail, 1)
-#Enable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
 
         Try
             Using StatementDataIn As New Microsoft.VisualBasic.FileIO.TextFieldParser(InputFile)
@@ -46,9 +44,7 @@
             InvalidCSV.Visibility = Visibility.Visible
             ProcessButton.IsEnabled = False
             StatementDate.Visibility = Visibility.Hidden
-#Disable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
             CSVGrid.SetRow(CSVFileDetail, 0)
-#Enable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
         End Try
     End Sub
 
@@ -104,7 +100,7 @@
             XmlWriter.WriteStartElement("CCSTMTRS")
             XmlWriter.WriteElementString("CURDEF", "GBP")
             XmlWriter.WriteStartElement("CCACCTFROM")
-            XmlWriter.WriteElementString("ACCTID", "***********0271")
+            XmlWriter.WriteElementString("ACCTID", "************0271")
             XmlWriter.WriteEndElement()
 
             XmlWriter.WriteStartElement("BANKTRANLIST")
