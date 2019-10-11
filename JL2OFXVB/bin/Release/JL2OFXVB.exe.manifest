@@ -50,17 +50,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+yccIXunV75ypC3RE5XIV2bzxU8xiCW0HTnLOnlH2bE=</dsig:DigestValue>
+        <dsig:DigestValue>0w+d4QieSFuzCqnImW5g+cBP6W0Y9HXhsOeViTKYrBQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="JL2OFXVB.exe.config" size="189">
+  <file name="JL2OFXVB.exe.config" size="186">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+      <dsig:DigestValue>eSEJjkfolEEv39DK/g+IzGhJd0CZjqwXxowAEpBp2AM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="JLP.ico" size="2702">

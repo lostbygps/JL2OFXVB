@@ -6,7 +6,7 @@
         DateProcessedP = System.DateTime.Parse(DateProcessed)
         DescriptionP = Description
         AmountP = Convert.ToDouble(Regex.Replace(Amount, ""))
-        If Credit = "CR" Then
+        If Credit = "CR" Or Description Like "PAYMENT RECEIVED*" Then
             AmountP = AmountP * -1
             CreditP = True
         Else
