@@ -1,4 +1,5 @@
-﻿Class MainWindow
+﻿Imports System.Text.RegularExpressions
+Class MainWindow
     Private Function BrowseForFile(CurrentFile As String, filter As String, title As String)
 
         Dim OpenFileDialog As New System.Windows.Forms.OpenFileDialog With {
@@ -27,18 +28,17 @@
                 While Not StatementDataIn.EndOfData
                     currentRow = StatementDataIn.ReadFields()
                     Rownum += 1
-                    Select Case True
-                        'Case Rownum = 2
-                        '    StatementDate.Content = "Statement Date: " + currentRow(1)
-                        Case Rownum > 1
-                            Dim Gridentry As New StatementData(currentRow(0), currentRow(1), currentRow(2), "") ' currentRow(3))
-                            GridData.Add(Gridentry)
-                    End Select
+                    If Rownum = 2 Then
+                        StatementDate.Content = "Statement Date: " + System.DateTime.Parse(currentRow(0)).ToString("MMMM yyyy")
+                    End If
+                    If Rownum > 1 Then
+                        Dim Gridentry As New StatementData(currentRow(0), currentRow(1), currentRow(2), "") ' currentRow(3))
+                        GridData.Add(Gridentry)
+                    End If
                 End While
                 If Rownum < 3 Then
                     Throw New System.Exception("Input file does not contain transaction records")
                 End If
-                StatementDate.Content = "Statement Date: " + System.DateTime.Parse(currentRow(0)).AddMonths(-1).ToString("MMMM yyyy")
             End Using
 
         Catch
@@ -51,7 +51,6 @@
 
     Private Sub GenerateOFXFile(Infile As String, Outfile As String)
 
-        Dim Regex As New Text.RegularExpressions.Regex("")
         JL2OFX.Cursor = Input.Cursors.Wait
         JL2OFX.Dispatcher.Invoke(Threading.DispatcherPriority.Background, New Action(Sub()
 
@@ -135,10 +134,8 @@
                 End If
                 XmlWriter.WriteElementString("DTPOSTED", POSTDATE.ToString("yyyyMMddHHmmss.fff[z]"))
                 XmlWriter.WriteElementString("TRNAMT", POSTAMNT.ToString())
-#Disable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
                 XmlWriter.WriteElementString("FITID", Regex.Replace(String.Format("00{4}{0:yyyyMMddHHmmssfff}{1}{2}{3}", POSTDATE, Regex.Replace(String.Format("{0:zz}", POSTDATE), "[^\d]", ""),
                 Regex.Replace(POSTAMNT.ToString(), "\.", ""), Transaction.Description, TRNTYPE), " ", ""))
-#Enable Warning BC42025 ' Access of shared member, constant member, enum member or nested type through an instance
                 XmlWriter.WriteElementString("NAME", Transaction.Description)
                 XmlWriter.WriteEndElement()
             Next
